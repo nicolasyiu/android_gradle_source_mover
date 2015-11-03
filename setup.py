@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
-  name = 'android_gradle_source_mover',
-  packages = ['android_gradle_source_mover'], # this must be the same as the name above
+  name = 'mumaoxi.ags.mover',
+  packages = ['mumaoxi.ags.mover'], # this must be the same as the name above
   version = '0.1',
   description = 'A Android sources mover for gradle build',
   author = 'mumaoxi',
