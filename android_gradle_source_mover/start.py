@@ -44,6 +44,7 @@ def replace_manifest_meta(xml_path,meta_name,new_value):
 #moving sources from one to another
 def move_sources(org_path,dest_path):
     print "moving sources...."
+    os.system("cp -r %s/* %s" % (org_path,dest_path) )
 
 def main():
     action = sys.argv[1]
