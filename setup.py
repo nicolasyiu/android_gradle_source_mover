@@ -23,7 +23,6 @@ def read(fname):
     return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-
 NAME = "android_gradle_source_mover"
 """
 名字，一般放你包的名字即可

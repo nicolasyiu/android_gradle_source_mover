@@ -3,18 +3,43 @@
 import os
 import sys
 import version
+from xml.etree import ElementTree as ET
+
+default_encoding = 'utf-8'
+if sys.getdefaultencoding() != default_encoding:
+    reload(sys)
+    sys.setdefaultencoding(default_encoding)
 
 ACTION1 = "-replace_str"
 ACTION2 = "-replace_meta"
 ACTION3 = "-move_source"
 
+xml_namespace_android = "http://schemas.android.com/apk/res/android"
+xmlns = "http://schemas.android.com/apk/res/android"
+
 #replace strings.xml key value
 def replace_string(xml_path,key,new_value):
     print 'replace_string_value:'+xml_path+","+key+","+new_value
+    per = ET.parse(xml_path)
+    root = per.getroot()
+    strings = root.findall('string')
+    for string in strings:
+        if string.attrib['name']==key:
+            string.text = new_value
+    per.write(xml_path,default_encoding,True)
 
 #replace metadata declare in AndroidManifest.xml
 def replace_manifest_meta(xml_path,meta_name,new_value):
     print 'replace_manifest_meta:'+xml_path+","+meta_name+","+new_value
+    ET.register_namespace('android', xml_namespace_android)
+    per=ET.parse(xml_path)
+    root = per.getroot()
+    application = root.find('application')
+    metas = application.findall('meta-data')
+    for meta in metas:
+        if meta.attrib['{%s}name'%xmlns]==meta_name:
+            meta.set('{%s}value'%xmlns,new_value)
+    per.write(xml_path,default_encoding,True)
 
 #moving sources from one to another
 def move_sources(org_path,dest_path):
