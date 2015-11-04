@@ -64,15 +64,17 @@ def main():
         dest_path = sys.argv[3]
         move_sources(org_path,dest_path)
 
+def main_helper():
+    print '\nAndroid Gradle Source Mover\n'
+    print 'Version:'+version.VERSION+"\n"
+    print "Usage:"
+    print "  "+ACTION1+"  <xml_path> <string_name> <new_value>\tReplace string value which declared in strings.xml"
+    print "  "+ACTION2+" <xml_path> <meta_name> <new_value>\tReplace metadata value which declared in AndroidManifest.xml"
+    print "  "+ACTION3+"  <org_path> <dest_path>\t\t\tMove sources from on place to another"
+    print "\n"
 
 if __name__=='__main__':
     if len(sys.argv)<=1:
-        print '\nAndroid Gradle Source Mover\n'
-        print 'Version:'+version.VERSION+"\n"
-        print "Usage:"
-        print "  "+ACTION1+"  <xml_path> <string_name> <new_value>\tReplace string value which declared in strings.xml"
-        print "  "+ACTION2+" <xml_path> <meta_name> <new_value>\tReplace metadata value which declared in AndroidManifest.xml"
-        print "  "+ACTION3+"  <org_path> <dest_path>\t\t\tMove sources from on place to another"
-        print "\n"
+        main_helper()
     else:
         main()
