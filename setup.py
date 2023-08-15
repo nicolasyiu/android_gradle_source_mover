@@ -48,18 +48,18 @@ KEYWORDS = "test python package"
 关于当前包的一些关键字，方便PyPI进行分类。
 """
 
-AUTHOR = "mumaoxi"
+AUTHOR = "NicolasYiu"
 """
 谁是这个包的作者，写谁的名字吧
 我是MitchellChu，自然这里写的是MitchellChu
 """
 
-AUTHOR_EMAIL = "15201280641@qq.com"
+AUTHOR_EMAIL = "stream8060@gmail.com"
 """
 作者的邮件地址
 """
 
-URL = "hhttps://github.com/mumaoxi/android_gradle_source_mover"
+URL = "hhttps://github.com/NicolasYiu/android_gradle_source_mover"
 """
 你这个包的项目地址，如果有，给一个吧，没有你直接填写在PyPI你这个包的地址也是可以的
 """
